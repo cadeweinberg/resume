@@ -1,0 +1,35 @@
+<!doctypehtml>
+<html lang=en-us>
+<head>
+    <meta charset=utf-8>
+    <meta content="text/html; charset=utf-8" http-equiv=Content-Type>
+    <title>Tiny Bytecode Compiler</title>
+</head>
+<header>
+    <a href="../index.html"><img src="../assets/photos/cade_weinberg_selfie.jpg" alt="a photo of cade weinberg" height="100" /></a>
+    <a href="../index.html">Resume</a>
+    <a href="./contact.html">Contact</a>
+    <a href="./hobbies.html">Hobbies</a>
+    <a href="./education.html">Education</a>
+    <a href="./work_history.html">Work History</a>
+    <a href="./skills.html">Skills</a>
+    <a href="./portfolio.html">Portfolio</a>
+    <hr />
+</header>
+<body>
+    <div>
+        <textarea cols=80 id=input rows=5 placeholder="Enter input here..."></textarea>
+    </div>
+    <div>
+        <textarea cols=80 id=output rows=10 readonly></textarea>
+    </div>
+    <button onclick=runWithInput()>Run</button>
+    <script>
+        var inputElement=document.getElementById("input"),
+        outputElement=document.getElementById("output"),readEvaluatePrint=null,Module={print:function(...t){outputElement.value+=t.join(" ")+"\n",outputElement.scrollTop=outputElement.scrollHeight},printErr:function(...t){outputElement.value+="ERROR: "+t.join(" ")+"\n",outputElement.scrollTop=outputElement.scrollHeight},onRuntimeInitialized:function(){console.log("WebAssembly module loaded and ready")}};function runWithInput(){let t=inputElement.value;if(t)try{var e=stringToNewUTF8(t);_readEvaluatePrint(e)}catch(t){outputElement.value+="Error: "+t.message+"\n"}else outputElement.value+="No input provided.\n"}</script>
+    <script async src=tbc.js></script>
+</body>
+<footer>
+    © Cade Weinberg 2026
+</footer>
+</html>
